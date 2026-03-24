@@ -1,0 +1,24 @@
+# Metadados do DBeaver e Eclipse (Caso a pasta seja aberta como projeto acidentalmente)
+.dbeaver/
+.project
+.classpath
+.settings/
+
+# Arquivos de configuração de interface do DBeaver
+data-sources.json
+credentials-config.json
+
+# Arquivos de log e histórico de execução
+*.log
+.metadata/
+
+# Arquivos de sistema operacional (Windows/Linux/Mac)
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Arquivos temporários e de backup de editores
+*~
+*.bak
+*.tmp
+*.swp
