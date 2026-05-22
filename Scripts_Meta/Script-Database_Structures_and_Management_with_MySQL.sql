@@ -203,3 +203,49 @@ WHERE HandlingCost > ALL(SELECT ROUND(OrderTotal / 100 * 20) FROM Orders) GROUP 
 SELECT EmployeeID, HandlingCost
 FROM Employees_Orders
 WHERE HandlingCost > ALL(SELECT ROUND(OrderTotal / 100 * 20) AS twentyPercent FROM Orders GROUP BY OrderTotal HAVING twentyPercent > 100) GROUP BY EmployeeID, HandlingCost;
+
+-- Lab 1 | Módulo 2
+SHOW tables;
+SELECT * FROM Orders;
+DROP TABLE Orders;
+
+CREATE TABLE Orders(
+	OrderID INT NOT NULL PRIMARY KEY,
+	ClientID VARCHAR(10),
+	ProductID VARCHAR(10),
+	Quantity INT,
+	Cost DECIMAL(6,2)
+);
+
+INSERT INTO Orders VALUES
+(1, "Cl1", "P1", 10, 500),
+(2, "Cl2", "P2", 5, 100), 
+(3, "Cl3", "P3", 20, 800), 
+(4, "Cl4", "P4", 15, 150), 
+(5, "Cl3", "P3", 10, 450), 
+(6, "Cl2", "P2", 5, 800), 
+(7, "Cl1", "P4", 22, 1200), 
+(8, "Cl1", "P1", 15, 150);
+
+-- Task 1
+SELECT * FROM Orders;
+REPLACE INTO Orders VALUES 
+(9, "Cl1", "P1", 10, 5000), 
+(10, "Cl2", "P2", 5, 100);
+
+-- Task 2
+REPLACE INTO Orders SET OrderId = 9, ClientID = "Cl1", ProductID = "P1", Quantity = 10, Cost = 500;
+
+-- Reading Exercise 1 | Módulo 2
+SHOW tables;
+
+CREATE TABLE Starters(
+	StarterName VARCHAR(100) NOT NULL PRIMARY KEY,
+	Cost DECIMAL(3,2),
+	StarterType VARCHAR(100) DEFAULT 'Mediterranean'
+);
+
+REPLACE INTO Starters VALUES ("Cheese Bread", 9.50, "Indian");
+SELECT * FROM Starters;
+REPLACE INTO Starters SET StarterName = "Cheese Bread", Cost = 9.75, StarterType = "Indian";
+
